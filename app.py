@@ -5,7 +5,7 @@ from lastmileai import LastMile
 app = Flask(__name__)
 
 # Initialize the LastMile API with your key
-lastmile_api_key = "your_lastmile_api_key_here"
+lastmile_api_key = "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..pmrV6W5j6CPKG31L.liGQlJroWTrTAVIqLj_3qfGhKIo2uu5WELTbSEOa3CL5QLYCKmrEKF0eOiycPDwJQNggJbjw1wmwU_4zkeKFwAl21Ob4d9cCILNDaEi_0jjnDu2G83LB9wsWHv3TMoXQ5au-msLr5VcDCS8Q5Vp8bynQyAExPl0PIPSa_mbHDAFC3AMkGo1VoxOTwcS57QgO_wZaAaAmaBMUpBkt2D0tH6tpyQAenldpX6SQuooq5NPgkFhSEwlFPcRcFkJWYm3Gvk1XjWKxT_faXTQ9eBdE0yk2FLucEsSI9EJ06OjEaaBBGPEINQMAhvc6Lcas2grQ_1dmW54hRRMR_Pa2LgpUNOQkZ1OCXPEjaiCWJIsI3SqHpiJuFKRmwhbjMX06COXxceE.M1xNvsKpBjcr2dvjueKVxA"
 lastmile = LastMile(api_key=lastmile_api_key)
 
 @app.route('/upload', methods=['POST'])
