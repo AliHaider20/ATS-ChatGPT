@@ -5,7 +5,8 @@ from lastmileai import LastMile
 import pandas as pd 
 import os
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+Lastmile_API = "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..AovYeCL9Ip-nUbaO.JlmY8Rbhivhs63sFt3kwR8YTXPFH_K_RjmCin5dYFOMOgigiHopTmriGOjzTxm8a3EOaY3ztuuhnQmsZxi03a4oVPl0Xb2v2gizSnknbtwopNjwiOLOYagM1xCU6FEbTnj8CJQzXv-QYqRlydRhXC_SSItCrsoJfY4CHPsRG3M8WyzLzYrsP_8pwZyRa7hdjiv22JqTZMR-yM6WTyLUCwZMGoLI6xnl4lQWwBHJai4a8tRg.mjWnBW4pECgGkUcjMQWz_w"
+lastmile = LastMile(api_key=Lastmile_API)
 
 # Saving the user questions
 if 'UserQA.csv' in os.listdir():
@@ -15,13 +16,17 @@ else:
     print("Dataframe created")
 
 def get_chatGPT_response(prompt, pdf_content, job_description):
-    response = client.chat.completions.create(
-        model = "gpt-3.5-turbo",
-        messages =  [
+    # Assume integration with an AI service like OpenAI's ChatGPT or similar
+    response = lastmile.create_openai_chat_completion(
+        completion_params={
+            "model": "gpt-3.5-turbo",
+            "messages": [
                 {"role": "user", "content": [{"type": "text", "text": prompt.format(pdf_content, job_description)}]}
             ],
-            )
-    return response.choices[0].message.content
+        }
+    )
+
+    return response['completionResponse']['choices'][0]['message']['content']
 
 
 def input_pdf_setup(file):
