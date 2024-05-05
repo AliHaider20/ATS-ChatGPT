@@ -1,6 +1,5 @@
 import streamlit as st
 import PyPDF2
-from openai import OpenAI
 from lastmileai import LastMile
 import pandas as pd 
 import os
